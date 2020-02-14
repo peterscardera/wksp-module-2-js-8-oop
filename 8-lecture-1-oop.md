@@ -15,8 +15,8 @@ let b = createAcc();
 
 inc(b);
 
-console.log(a.sum);
-console.log(b.sum);
+console.log(a.sum); // returns 0 
+console.log(b.sum);// returns 1
 ```
 
 ---
@@ -127,7 +127,7 @@ console.log(sanFransisco);
 
 ---
 
-## Third Rule of classes: method arrow functions
+## Third Rule of classes: method arrow functions (we could only use arrow as => has access to parent objects this)
 
 Every method arrow function of a class creates a function.
 Every instance of a class has a property that matches the method name and refers to the function.
@@ -192,20 +192,28 @@ In other words, the keyword `this` refers to the newly created object.
 ---
 
 ```js
+
+
+
 class Dog {
     constructor(voice) {
-        this.voice = voice;
+        this.voice = voice || "woof" //default is the or
     }
     noise = () => {
         console.log(this.voice);
     }
     coolOff = () => {
-        console.log("pant ");
+        console.log("pant");
     }
 }
 
-let mastiff = new Dog('WOOF!');
-let terrier = new Dog('yip!yip!');
+let mastiff = new Dog("woof");
+let terrier = new Dog("yup")
+
+
+//mastiff.noise() // returns woof
+terrier.coolOff() // returns pant
+
 ```
 
 ---
@@ -218,7 +226,10 @@ class Car {
     drive = () => { this.mileage = this.mileage + 10 }
 }
 let myCar = new Car();
-myCar.drive(); 
+myCar.drive(); /// the milegae increases by 10 when we call it
+
+console.log(myCar // mileage of 10 now)
+
 ```
 
 ---
@@ -229,9 +240,27 @@ myCar.drive();
 // 1. Given this class, how would we represent its hunger level?
 // 2. How could we represent varying hunger levels based on activity?
 // 3. How about when it eats?
+
 class Animal {
 
+    constructor(name) {
+        this.name = name
+        this.hungerLvl = 0
+    }
+
+play = () => {
+    this.hungerLvl += 20;
 }
+
+    eat = () => {
+        this.hungerLvl -=10
+    }
+
+}
+
+let p = new Animal("p")
+
+console.log(p.play())
 
 ```
 

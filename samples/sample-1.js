@@ -27,3 +27,5 @@ console.log('1. Species: ', bob.species);
 console.log('2. name: ', bob.name);
 bob.greet();
 bob.dance();
+
+//because male extends to human bob has access

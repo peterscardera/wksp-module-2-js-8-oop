@@ -12,7 +12,22 @@
 // Console.log them to verify that all is working.
 
 class Book {
+    constructor(title, genre, author, read, startReadDate, endReadDate) {
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+        this.read = read || false;
+        this.startReadDate = startReadDate || null;
+        this.endReadDate = endReadDate || null;
+    }
     
 }
 
-console.log(book1, book2, book3, book4, book5);
+let book1 = new Book("Head First JavaScript Programming", "Programming", "Eric Freeman", "partially", "Feb")
+let book2 = new Book("Eloquent JavaScript", "Programming", "Marijn Haverbeke")
+let book3 = new Book("Flash Boys", "Finance","Michael Lewis", "Fully","Dec","Jan")
+let book4 = new Book("Talking to Strangers", "Communication","Malcom Gladwell", "Fully","Nov","Jan")
+let book5 = new Book("Atomic Habit","self-improvement", "James Clear")
+
+
+console.log(book1, book2, book3, book4, book5); 
